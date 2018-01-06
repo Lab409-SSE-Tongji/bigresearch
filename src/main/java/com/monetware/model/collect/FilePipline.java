@@ -10,6 +10,7 @@ import java.util.Map;
 
 public class FilePipline implements us.codecraft.webmagic.pipeline.Pipeline {
     public static String tempResult="";
+    public static String path="data/";
     @Override
     public void process(ResultItems resultItems, Task task) {
 
@@ -27,11 +28,11 @@ public class FilePipline implements us.codecraft.webmagic.pipeline.Pipeline {
         }
         tempResult=result;
         try {
-            File direc = new File("C:\\datas");
+            File direc = new File("data");
             if (direc.isDirectory()) {
                 File[] files = direc.listFiles();
                 if (files.length == 0) {
-                    File file = new File("C:\\datas\\1.txt");
+                    File file = new File(path+"1.txt");
                     file.createNewFile();
                     FileWriter writer=new FileWriter(file,true);
                     writer.write(result);
@@ -53,7 +54,7 @@ public class FilePipline implements us.codecraft.webmagic.pipeline.Pipeline {
                     if(lastfile.length()>52428800)
                     {
                         int num=Maxnumber+1;
-                        File newfile=new File("C:\\datas\\"+num+".txt");
+                        File newfile=new File(path+num+".txt");
                         newfile.createNewFile();
                         FileWriter writer=new FileWriter(newfile,true);
                         writer.write(result);
