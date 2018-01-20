@@ -1,6 +1,6 @@
-# High-level Design (概要设计规约)
+# High-level Design
 
-## Prototype Design (原型设计)
+## Prototype Design
 
 Here's the UI design of the project
 
@@ -16,28 +16,28 @@ Here's the UI design of the project
 
 ![6](images/outline_design/6.png)
 
-## Business Architecture (业务架构)
+## Business Architecture
 
 The business architecture outline the key components in each layers of the project systems. Here is the diagram:
 
 ![business architecture](images/outline_design/Business_Architecture.png)
 
 
-## Technology Architecture (技术架构)
+## Technology Architecture
 
 The architecture of the technology stacks (coding language, frameworks, libraries, styles, etc) used in the project. Here is the diagram:
 
 ![technology architecture](images/outline_design/Technology_Architecture.png)
 
-## Deployment Topology (部署结构)
+## Deployment Topology
 
 Deployment Topology shows how the whole project is deployed in the physical environment, including servers, VMs/containers, networks, key components, etc. A overview picture is required to show the topology. Here is the picture
 
 ![deployment topology](images/outline_design/Deployment_Topology.png)
 
-## Data Models (数据建模)
+## Data Models
 
-### Entity-Relation Design (实体-关系设计)
+### Entity-Relation Design
 
 An Entity-Relation Diagram is required to show the concepts in the project and their relations. And for each entity and realtion, there should be a description after the diagram.
 
@@ -45,7 +45,7 @@ An Entity-Relation Diagram is required to show the concepts in the project and t
 
 ![ER sample](images/outline_design/Entity_Relation_Design.png)
 
-### Database Design (数据库设计)
+### Database Design
 
 According to the Entity-Realtion Design, the detailed database design for entities and relations should be listed as tables. 
 
@@ -94,13 +94,13 @@ According to the Entity-Realtion Design, the detailed database design for entiti
 |      time      | timestamp | the current time               |
 
 
-## Interface Specifications （接口规约）
+## Interface Specifications
 
 The specifications of interfaces used in interactions among subsystems:
 
 ### *advance/getProjectsBasicInfo*   
 
-#### Description (接口描述)
+#### Description
 
 Get all basic information of a project.
 
@@ -109,25 +109,25 @@ Get all basic information of a project.
 | Request Method | Get  |
 
 
-#### Parameters (参数)
+#### Parameters
 
 ```
 无
 ```
 
-#### Responses (返回结果)
+#### Responses
 
 | Code | Description         | Schema             |
 | :--: | :------------------ | :----------------- |
 | 200  | Successful response | *list* : jsonArray |
 
-#### Request Sample (示例请求)
+#### Request Sample
 
 ```
 advance/getProjectsBasicInfo
 ```
 
-#### Response Sample (示例结果)
+#### Response Sample
 
 ```
 [{
@@ -154,7 +154,7 @@ advance/getProjectsBasicInfo
 ```
 ### *advance/getProjectsDetailInfo*   
 
-#### Description (接口描述)
+#### Description
 
 Get the detailed information of project.
 
@@ -162,26 +162,26 @@ Get the detailed information of project.
 | -------------- | ---- |
 | Request Method | Get  |
 
-#### Parameters (参数)
+#### Parameters
 
 ```
-无
+None
 ```
 
 
-#### Responses (返回结果)
+#### Responses
 
 | Code | Description         | Schema             |
 | :--: | :------------------ | :----------------- |
 | 200  | Successful response | *list* : jsonArray |
 
-#### Request Sample (示例请求)
+#### Request Sample
 
 ```
 advance/getProjectsDetailInfo
 ```
 
-#### Response Sample (示例结果)
+#### Response Sample
 
 ```
 [{
@@ -243,7 +243,7 @@ advance/getProjectsDetailInfo
 ```
 ### *advance/createProject*   
 
-#### Description (接口描述)
+#### Description
 
 Create a Project
 
@@ -251,27 +251,27 @@ Create a Project
 | -------------- | ---- |
 | Request Method | Post |
 
-#### Parameters (参数)
+#### Parameters
 
 |     Name     | Located in | Description  | Required | Schema |
 | :----------: | :--------: | :----------- | :------: | :----- |
 | project_name |   query    | project name |   Yes    | string |
 
 
-#### Responses (返回结果)
+#### Responses
 
 | Code | Description         | Schema                                   |
 | :--: | :------------------ | :--------------------------------------- |
 | 200  | Successful response | *code* : boolean <br/> *message* : string <br/> *newProject* : json |
 | 200  | Fail response       | *code* : boolean <br/> *message* : string |
 
-#### Request Sample (示例请求)
+#### Request Sample
 
 ```
 advance/createProject
 ```
 
-#### Response Sample (示例结果)
+#### Response Sample
 
 ```
 {
@@ -294,7 +294,7 @@ advance/createProject
 ```
 ### *advance/createTask*   
 
-#### Description (接口描述)
+#### Description
 
 Create a task
 
@@ -302,7 +302,7 @@ Create a task
 | -------------- | ---- |
 | Request Method | Post |
 
-#### Parameters (参数)
+#### Parameters
 
 |    Name    | Located in | Description | Required | Schema |
 | :--------: | :--------: | :---------- | :------: | :----- |
@@ -310,20 +310,20 @@ Create a task
 | task_name  |   query    | task name   |   Yes    | string |
 
 
-#### Responses (返回结果)
+#### Responses
 
 | Code | Description         | Schema                                   |
 | :--: | :------------------ | :--------------------------------------- |
 | 200  | Successful response | *code* : boolean <br/> *message* : string <br/> *newTask* : json <br/> *project_id* : int |
 | 200  | Fail response       | *code* : boolean <br/> *message* : string <br/> |
 
-#### Request Sample (示例请求)
+#### Request Sample
 
 ```
 advance/createTask
 ```
 
-#### Response Sample (示例结果)
+#### Response Sample
 
 ```
 {
@@ -340,7 +340,7 @@ advance/createTask
 
 ### *advance/uploadFile*   
 
-#### Description (接口描述)
+#### Description
 
 upload a file
 
@@ -348,26 +348,26 @@ upload a file
 | -------------- | ---- |
 | Request Method | Post |
 
-#### Parameters (参数)
+#### Parameters
 
 | Name | Located in | Description    | Required | Schema |
 | :--: | :--------: | :------------- | :------: | :----- |
 | file |   query    | file to upload |   Yes    | file   |
 
 
-#### Responses (返回结果)
+#### Responses
 
 | Code | Description         | Schema           |
 | :--: | :------------------ | :--------------- |
 | 200  | Successful response | *code* : boolean |
 
-#### Request Sample (示例请求)
+#### Request Sample
 
 ```
 advance/uploadFile
 ```
 
-#### Response Sample (示例结果)
+#### Response Sample
 
 ```
 {
@@ -376,7 +376,7 @@ advance/uploadFile
 ```
 ### *advance/task_config*   
 
-#### Description (接口描述)
+#### Description
 
 Change the config of the task
 
@@ -384,25 +384,25 @@ Change the config of the task
 | -------------- | ---- |
 | Request Method | Post |
 
-#### Parameters (参数)
+#### Parameters
 
 |  Name  | Located in | Description | Required | Schema |
 | :----: | :--------: | :---------- | :------: | :----- |
 | config |   query    | task config |   Yes    | json   |
 
-#### Responses (返回结果)
+#### Responses
 
 | Code | Description         | Schema           |
 | :--: | :------------------ | :--------------- |
 | 200  | Successful response | *code* : boolean |
 
-#### Request Sample (示例请求)
+#### Request Sample
 
 ```
 advance/task_config
 ```
 
-#### Response Sample (示例结果)
+#### Response Sample
 
 ```
 {
@@ -411,7 +411,7 @@ advance/task_config
 ```
 ### *advance/task_config*   
 
-#### Description (接口描述)
+#### Description
 
 Get the config of the task
 
@@ -419,25 +419,25 @@ Get the config of the task
 | -------------- | ---- |
 | Request Method | Get  |
 
-#### Parameters (参数)
+#### Parameters
 
 |  Name   | Located in | Description | Required | Schema |
 | :-----: | :--------: | :---------- | :------: | :----- |
 | task_id |   query    | task id     |   Yes    | int    |
 
-#### Responses (返回结果)
+#### Responses
 
 | Code | Description         | Schema          |
 | :--: | :------------------ | :-------------- |
 | 200  | Successful response | *config* : json |
 
-#### Request Sample (示例请求)
+#### Request Sample
 
 ```
 advance/task_config?task_id=24
 ```
 
-#### Response Sample (示例结果)
+#### Response Sample
 
 ```
 {
@@ -446,7 +446,7 @@ advance/task_config?task_id=24
 ```
 ### *collect/crawler*   
 
-#### Description (接口描述)
+#### Description
 
 Collect data with the clue pattern and Ajax flip
 
@@ -454,26 +454,26 @@ Collect data with the clue pattern and Ajax flip
 | -------------- | ---- |
 | Request Method | Post |
 
-#### Parameters (参数)
+#### Parameters
 
 | Name | Located in | Description                 | Required | Schema |
 | :--: | :--------: | :-------------------------- | :------: | :----- |
 | data |   query    | the test creep rule of many |   Yes    | json   |
 
 
-#### Responses (返回结果)
+#### Responses
 
 | Code | Description         | Schema         |
 | :--: | :------------------ | :------------- |
 | 200  | Successful response | *res* : string |
 
-#### Request Sample (示例请求)
+#### Request Sample
 
 ```
 collect/clues
 ```
 
-#### Response Sample (示例结果)
+#### Response Sample
 
 ```
 {
@@ -482,7 +482,7 @@ collect/clues
 ```
 ### *collect/CrawledData*   
 
-#### Description (接口描述)
+#### Description
 
 Collect data with the single pattern and Ajax flip
 
@@ -490,26 +490,26 @@ Collect data with the single pattern and Ajax flip
 | -------------- | ---- |
 | Request Method | Post |
 
-#### Parameters (参数)
+#### Parameters
 
 |  Name   | Located in | Description            | Required | Schema |
 | :-----: | :--------: | :--------------------- | :------: | :----- |
 | request |   query    | the creep rule of test |   Yes    | json   |
 
 
-#### Responses (返回结果)
+#### Responses
 
 | Code | Description         | Schema                |
 | :--: | :------------------ | :-------------------- |
 | 200  | Successful response | *testResult* : string |
 
-#### Request Sample (示例请求)
+#### Request Sample
 
 ```
 collect/CrawledData
 ```
 
-#### Response Sample (示例结果)
+#### Response Sample
 
 ```
 {
@@ -518,7 +518,7 @@ collect/CrawledData
 ```
 ### *CrawlPlan/Plan*   
 
-#### Description (接口描述)
+#### Description
 
 Execute the whole crawl plan task
 
@@ -526,7 +526,7 @@ Execute the whole crawl plan task
 | -------------- | ---- |
 | Request Method | Post |
 
-#### Parameters (参数)
+#### Parameters
 
 |    Name    | Located in | Description          | Required | Schema |
 | :--------: | :--------: | :------------------- | :------: | :----- |
@@ -534,19 +534,19 @@ Execute the whole crawl plan task
 |  task_id   |   query    | the id of th task    |   Yes    | int    |
 
 
-#### Responses (返回结果)
+#### Responses
 
 | Code | Description         | Schema        |
 | :--: | :------------------ | :------------ |
 | 200  | Successful response | *code* : true |
 
-#### Request Sample (示例请求)
+#### Request Sample
 
 ```
 CrawlPlan/Plan
 ```
 
-#### Response Sample (示例结果)
+#### Response Sample
 
 ```
 {
@@ -555,7 +555,7 @@ CrawlPlan/Plan
 ```
 ### *progress/status*   
 
-#### Description (接口描述)
+#### Description
 
 Get the progress of all projects
 
@@ -563,25 +563,25 @@ Get the progress of all projects
 | -------------- | ---- |
 | Request Method | Get  |
 
-#### Parameters (参数)
+#### Parameters
 
 ```
-无
+None
 ```
 
-#### Responses (返回结果)
+#### Responses
 
 | Code | Description         | Schema               |
 | :--: | :------------------ | :------------------- |
 | 200  | Successful response | *result* : jsonArray |
 
-#### Request Sample (示例请求)
+#### Request Sample
 
 ```
 progress/status
 ```
 
-#### Response Sample (示例结果)
+#### Response Sample
 
 ```
 {
@@ -608,7 +608,7 @@ progress/status
 ```
 ### *collect/download*   
 
-#### Description (接口描述)
+#### Description
 
 Get the download message of the given url
 
@@ -616,25 +616,25 @@ Get the download message of the given url
 | -------------- | ---- |
 | Request Method | Get  |
 
-#### Parameters (参数)
+#### Parameters
 
 |   Name   | Located in | Description  | Required | Schema |
 | :------: | :--------: | :----------- | :------: | :----- |
 | url_path |   query    | the url path |   Yes    | string |
 
-#### Responses (返回结果)
+#### Responses
 
 | Code | Description         | Schema                 |
 | :--: | :------------------ | :--------------------- |
 | 200  | Successful response | *response* : "success" |
 
-#### Request Sample (示例请求)
+#### Request Sample
 
 ```
 collect/download
 ```
 
-#### Response Sample (示例结果)
+#### Response Sample
 
 ```
 {
@@ -643,7 +643,7 @@ collect/download
 ```
 ### *collect/file/exist*   
 
-#### Description (接口描述)
+#### Description
 
 Get exist message of given file name
 
@@ -651,25 +651,25 @@ Get exist message of given file name
 | -------------- | ---- |
 | Request Method | Get  |
 
-#### Parameters (参数)
+#### Parameters
 
 |   Name   | Located in | Description   | Required | Schema |
 | :------: | :--------: | :------------ | :------: | :----- |
 | filename |   query    | the file name |   Yes    | string |
 
-#### Responses (返回结果)
+#### Responses
 
 | Code | Description         | Schema |
 | :--: | :------------------ | :----- |
 | 200  | Successful response | true   |
 
-#### Request Sample (示例请求)
+#### Request Sample
 
 ```
 collect/file/exist
 ```
 
-#### Response Sample (示例结果)
+#### Response Sample
 
 ```
 {
